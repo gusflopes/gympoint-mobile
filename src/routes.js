@@ -10,5 +10,6 @@ export default createAppContainer(
     SignIn,
     CheckIn,
     SignUp,
+    HelpOrder,
   })
 );
