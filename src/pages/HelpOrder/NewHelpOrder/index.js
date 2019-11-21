@@ -22,7 +22,7 @@ NewHelpOrder.navigationOptions = ({ navigation }) => ({
         navigation.navigate('HelpOrder');
       }}
     >
-      <Icon name="chevron-left" size={20} color="#999" />
+      <Icon name="chevron-left" size={50} color="#EE4E62" />
     </TouchableOpacity>
   ),
 });

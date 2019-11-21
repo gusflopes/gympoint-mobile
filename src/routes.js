@@ -23,8 +23,7 @@ export default createAppContainer(
       App: createBottomTabNavigator(
         {
           CheckIn,
-          HelpOrder,
-          Help: {
+          HelpOrder: {
             screen: createStackNavigator(
               {
                 HelpOrder,
@@ -43,17 +42,6 @@ export default createAppContainer(
                 },
               }
             ),
-            navigationOptions: {
-              tabBarVisible: false,
-              tabBarLabel: 'Solicitar',
-              tabBarIcon: (
-                <Icon
-                  name="add-circle-outline"
-                  size={20}
-                  color="rgba(255,255,255,0.6)"
-                />
-              ),
-            },
           },
         },
         {
