@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import Button from '~/components/Button';
+import Input from '~/components/Input';
 
 export const Container = styled.SafeAreaView`
   background-color: #c5c5c5;
@@ -7,11 +8,11 @@ export const Container = styled.SafeAreaView`
   flex: 1;
 `;
 
-export const HelpButton = styled(Button)`
+export const FormInput = styled(Input)`
   margin: 10px 20px;
+  height: 300px;
 `;
 
-export const Titulo = styled.Text`
-  margin: 10px;
-  text-align: center;
+export const HelpButton = styled(Button)`
+  margin: 10px 20px;
 `;

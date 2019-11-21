@@ -13,29 +13,15 @@ export const Container = styled.View`
 export const MessageHeader = styled.View`
   flex-direction: row;
   justify-content: space-between;
+  margin: 20px 20px;
 `;
 
 export const AnswerStatus = styled.View`
   flex-direction: row;
 `;
 
-export const MessageContent = styled.View``;
-
-export const CheckInText = styled.Text`
-  font-size: 14px;
-  font-weight: bold;
-  color: #444444;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 15px;
-  margin-bottom: 12px;
-`;
-
-export const TimeText = styled.Text`
+export const TextContent = styled.Text`
+  margin: 20px 20px;
   font-size: 14px;
   color: #666666;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 15px;
-  margin-bottom: 12px;
 `;

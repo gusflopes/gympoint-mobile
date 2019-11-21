@@ -7,6 +7,7 @@ import {
   MessageHeader,
   AnswerStatus,
   MessageContent,
+  TextContent,
 } from './styles';
 
 export default function HelpOrderCard() {
@@ -16,27 +17,28 @@ export default function HelpOrderCard() {
         <MessageHeader>
           <AnswerStatus>
             <Icon name="check-circle" size={16} color="#999999" />
-            <Text> Sem resposta </Text>
+            <Text style={{ color: '#999999' }}> Sem resposta </Text>
           </AnswerStatus>
-          <Text>Hoje às 14:00h</Text>
+          <Text style={{ color: '#666666' }}>Hoje às 14:00h</Text>
         </MessageHeader>
-        <Text>---</Text>
-        <MessageContent>
-          <Text>
-            Olá pessoal da academia, gostaria de saber se quando acordar devo
-            ingerir batata doce e frango logo de primeira, preparar as...
-          </Text>
-        </MessageContent>
-      </Container>
-      <Container>
-        <Icon name="check-circle" size={16} color="#42cb59" />
-        <Text color="#42cb59"> Respondido </Text>
-        <Text>Hoje às 14:00h</Text>
-        <Text>---</Text>
-        <Text>
+        <TextContent>
           Olá pessoal da academia, gostaria de saber se quando acordar devo
           ingerir batata doce e frango logo de primeira, preparar as...
-        </Text>
+        </TextContent>
+      </Container>
+      <Container>
+        <MessageHeader>
+          <AnswerStatus>
+            <Icon name="check-circle" size={16} color="#42cb59" />
+            <Text style={{ color: '#42cb59' }}> Respondido </Text>
+          </AnswerStatus>
+          <Text style={{ color: '#666666' }}>Hoje às 14:00h</Text>
+        </MessageHeader>
+
+        <TextContent>
+          Olá pessoal da academia, gostaria de saber se quando acordar devo
+          ingerir batata doce e frango logo de primeira, preparar as...
+        </TextContent>
       </Container>
     </>
   );
