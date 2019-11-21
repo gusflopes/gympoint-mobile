@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Container, FormInput, HelpButton } from './styles';
 
-export default function NewHelpOrder() {
+export default function NewHelpOrder({ navigation }) {
   return (
     <Container>
       <Text> Título </Text>
@@ -12,3 +13,16 @@ export default function NewHelpOrder() {
     </Container>
   );
 }
+
+NewHelpOrder.navigationOptions = ({ navigation }) => ({
+  title: 'Selecione o prestador',
+  headerLeft: () => (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('HelpOrder');
+      }}
+    >
+      <Icon name="chevron-left" size={20} color="#999" />
+    </TouchableOpacity>
+  ),
+});

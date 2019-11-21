@@ -1,4 +1,9 @@
+import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createStackNavigator } from 'react-navigation-stack';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import Logo from '~/assets/logo.png';
 
 import SignIn from '~./pages/SignIn';
 import SignUp from '~/pages/SignUp';
@@ -9,12 +14,63 @@ import NewHelpOrder from '~/pages/HelpOrder/NewHelpOrder';
 import DetailsHelpOrder from '~/pages/HelpOrder/DetailsHelpOrder';
 
 export default createAppContainer(
-  createSwitchNavigator({
-    SignIn,
-    CheckIn,
-    SignUp,
-    HelpOrder,
-    NewHelpOrder,
-    DetailsHelpOrder,
-  })
+  createSwitchNavigator(
+    {
+      Sign: createSwitchNavigator({
+        SignIn,
+        SignUp,
+      }),
+      App: createBottomTabNavigator(
+        {
+          CheckIn,
+          HelpOrder,
+          Help: {
+            screen: createStackNavigator(
+              {
+                HelpOrder,
+                NewHelpOrder,
+                DetailsHelpOrder,
+              },
+              {
+                defaultNavigationOptions: {
+                  headerTitle: 'GYMPOINT',
+                  headerTransparent: false,
+                  headerTintColor: '#EE4E62',
+                  headerLayoutPreset: 'center',
+                  headerLeftContainerStyle: {
+                    marginLeft: 20,
+                  },
+                },
+              }
+            ),
+            navigationOptions: {
+              tabBarVisible: false,
+              tabBarLabel: 'Solicitar',
+              tabBarIcon: (
+                <Icon
+                  name="add-circle-outline"
+                  size={20}
+                  color="rgba(255,255,255,0.6)"
+                />
+              ),
+            },
+          },
+        },
+        {
+          resetOnBlur: true,
+          tabBarOptions: {
+            keyboardHidesTabBar: true,
+            activeTintColor: '#fff',
+            inactiveTintColor: 'rgba(255,255,255,0.6)',
+            style: {
+              backgroundColor: '#8d41a8',
+            },
+          },
+        }
+      ),
+    },
+    {
+      initialRouteName: 'App',
+    }
+  )
 );
