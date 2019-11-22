@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Container, Card, Title, TextMessage } from './styles';
 
-export default function DetailsHelpOrder() {
+export default function DetailsHelpOrder({ item }) {
   return (
     <Container>
       <Card>

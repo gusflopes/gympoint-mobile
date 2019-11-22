@@ -9,12 +9,10 @@ export function* signIn({ payload }) {
   try {
     const { studentId } = payload;
 
-    const response = yield call(api.get, `students/${studentId}/checkins`);
+    const { status } = yield call(api.get, `students/${studentId}/checkins`);
 
-    const { student } = response.data;
-
-    if (!student) {
-      Alert.alert('ID Incorreto!', 'Verifique seus dados');
+    if (status !== 200) {
+      Alert.alert('ID Incorreto 01!', 'Verifique seus dados');
 
       return;
     }
@@ -23,8 +21,8 @@ export function* signIn({ payload }) {
 
     // history.push('/dashboard');
   } catch (err) {
-    Alert.alert('ID Incorreto!', 'Verifique seus dados');
-    yield put(signFailure());
+    Alert.alert('ID Incorreto 02!', 'Verifique seus dados');
+    // yield put(signFailure());
   }
 }
 

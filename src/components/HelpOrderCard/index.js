@@ -4,37 +4,25 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Container, MessageHeader, AnswerStatus, TextContent } from './styles';
 
-export default function HelpOrderCard(props) {
-  const { handleNavigate } = props;
+export default function HelpOrderCard({ handleNavigate, value }) {
+  const { answer_at, question, answer } = value;
   return (
-    <>
-      <Container>
-        <MessageHeader>
-          <AnswerStatus onPress={handleNavigate}>
-            <Icon name="check-circle" size={16} color="#999999" />
-            <Text style={{ color: '#999999' }}> Sem resposta </Text>
-          </AnswerStatus>
-          <Text style={{ color: '#666666' }}>Hoje às 14:00h</Text>
-        </MessageHeader>
-        <TextContent>
-          Olá pessoal da academia, gostaria de saber se quando acordar devo
-          ingerir batata doce e frango logo de primeira, preparar as...
-        </TextContent>
-      </Container>
-      <Container>
-        <MessageHeader>
-          <AnswerStatus onPress={handleNavigate}>
-            <Icon name="check-circle" size={16} color="#42cb59" />
-            <Text style={{ color: '#42cb59' }}> Respondido </Text>
-          </AnswerStatus>
-          <Text style={{ color: '#666666' }}>Hoje às 14:00h</Text>
-        </MessageHeader>
+    <Container>
+      <MessageHeader>
+        <AnswerStatus onPress={handleNavigate}>
+          <Icon
+            name="check-circle"
+            size={16}
+            color={answer_at ? '#42cb59' : '#999999'}
+          />
+          <Text style={answer_at ? { color: '#42cb59' } : { color: '#999999' }}>
+            {answer_at ? 'Respondido' : 'Sem resposta'}{' '}
+          </Text>
+        </AnswerStatus>
+        <Text style={{ color: '#666666' }}>{answer_at}</Text>
+      </MessageHeader>
 
-        <TextContent>
-          Olá pessoal da academia, gostaria de saber se quando acordar devo
-          ingerir batata doce e frango logo de primeira, preparar as...
-        </TextContent>
-      </Container>
-    </>
+      <TextContent>{question}</TextContent>
+    </Container>
   );
 }
