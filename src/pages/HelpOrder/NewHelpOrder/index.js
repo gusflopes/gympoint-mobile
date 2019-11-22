@@ -13,9 +13,7 @@ export default function NewHelpOrder({ navigation }) {
     </Container>
   );
 }
-
 NewHelpOrder.navigationOptions = ({ navigation }) => ({
-  title: 'Selecione o prestador',
   headerLeft: () => (
     <TouchableOpacity
       onPress={() => {

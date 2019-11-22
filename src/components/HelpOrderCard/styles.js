@@ -16,7 +16,7 @@ export const MessageHeader = styled.View`
   margin: 20px 20px;
 `;
 
-export const AnswerStatus = styled.View`
+export const AnswerStatus = styled.TouchableOpacity`
   flex-direction: row;
 `;
 

@@ -2,20 +2,15 @@ import React from 'react';
 import { Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import {
-  Container,
-  MessageHeader,
-  AnswerStatus,
-  MessageContent,
-  TextContent,
-} from './styles';
+import { Container, MessageHeader, AnswerStatus, TextContent } from './styles';
 
-export default function HelpOrderCard() {
+export default function HelpOrderCard(props) {
+  const { handleNavigate } = props;
   return (
     <>
       <Container>
         <MessageHeader>
-          <AnswerStatus>
+          <AnswerStatus onPress={handleNavigate}>
             <Icon name="check-circle" size={16} color="#999999" />
             <Text style={{ color: '#999999' }}> Sem resposta </Text>
           </AnswerStatus>
@@ -28,7 +23,7 @@ export default function HelpOrderCard() {
       </Container>
       <Container>
         <MessageHeader>
-          <AnswerStatus>
+          <AnswerStatus onPress={handleNavigate}>
             <Icon name="check-circle" size={16} color="#42cb59" />
             <Text style={{ color: '#42cb59' }}> Respondido </Text>
           </AnswerStatus>

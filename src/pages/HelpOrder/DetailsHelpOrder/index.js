@@ -1,11 +1,12 @@
 import React from 'react';
+import { TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Container, Card, Title, TextMessage } from './styles';
 
 export default function DetailsHelpOrder() {
   return (
     <Container>
-      <Title>GYMPOINT</Title>
       <Card>
         <Title>PERGUNTA</Title>
         <TextMessage>
@@ -22,3 +23,15 @@ export default function DetailsHelpOrder() {
     </Container>
   );
 }
+
+DetailsHelpOrder.navigationOptions = ({ navigation }) => ({
+  headerLeft: () => (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('HelpOrder');
+      }}
+    >
+      <Icon name="chevron-left" size={50} color="#EE4E62" />
+    </TouchableOpacity>
+  ),
+});

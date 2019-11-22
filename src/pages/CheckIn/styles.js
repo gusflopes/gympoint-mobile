@@ -1,6 +1,12 @@
 import styled from 'styled-components/native';
 import Button from '~/components/Button';
 
+export const Header = styled.SafeAreaView`
+  background-color: #fff;
+  display: flex;
+  flex: 1;
+`;
+
 export const Container = styled.View`
   background-color: #c5c5c5;
   display: flex;
@@ -9,9 +15,4 @@ export const Container = styled.View`
 
 export const CheckInButton = styled(Button)`
   margin: 10px 20px;
-`;
-
-export const Titulo = styled.Text`
-  margin: 10px;
-  text-align: center;
 `;

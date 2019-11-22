@@ -2,8 +2,9 @@ import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Logo from '~/assets/logo.png';
+import HeaderTitle from '~/components/HeaderTitle';
 
 import SignIn from '~./pages/SignIn';
 import SignUp from '~/pages/SignUp';
@@ -32,7 +33,7 @@ export default createAppContainer(
               },
               {
                 defaultNavigationOptions: {
-                  headerTitle: 'GYMPOINT',
+                  headerTitle: () => <HeaderTitle />,
                   headerTransparent: false,
                   headerTintColor: '#EE4E62',
                   headerLayoutPreset: 'center',
@@ -48,10 +49,10 @@ export default createAppContainer(
           resetOnBlur: true,
           tabBarOptions: {
             keyboardHidesTabBar: true,
-            activeTintColor: '#fff',
-            inactiveTintColor: 'rgba(255,255,255,0.6)',
+            activeTintColor: '#ee4e62',
+            inactiveTintColor: '#999',
             style: {
-              backgroundColor: '#8d41a8',
+              backgroundColor: '#fff',
             },
           },
         }
