@@ -1,13 +1,13 @@
 import styled from 'styled-components/native';
 import Button from '~/components/Button';
 
-export const Header = styled.SafeAreaView`
+export const Header = styled.View`
   background-color: #fff;
   display: flex;
   flex: 1;
 `;
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
   background-color: #c5c5c5;
   display: flex;
   flex: 1;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { TouchableOpacity, Alert } from 'react-native';
+import { TouchableOpacity, Alert, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { parseISO, formatDistance } from 'date-fns';
@@ -40,40 +40,38 @@ export default function CheckIn() {
     loadData();
   }, []); //eslint-disable-line
 
-  useEffect(() => {
-    Alert.alert('message', JSON.stringify(checkIns));
-  }, [checkIns]);
-
   async function handleCheckIn() {
-    const response = await api.post(`/students/${studentId}/checkins`);
-    const { checkin } = response.data;
-    // Alert.alert('Mensagem', JSON.stringify(checkin));
-    const data = {
-      ...checkin,
-      timeDistance: formatDistance(parseISO(checkin.createdAt), new Date(), {
-        addSuffix: true,
-        locale: pt,
-      }),
-    };
+    try {
+      const response = await api.post(`/students/${studentId}/checkins`);
+      const { checkin } = response.data;
+      const data = {
+        ...checkin,
+        timeDistance: formatDistance(parseISO(checkin.createdAt), new Date(), {
+          addSuffix: true,
+          locale: pt,
+        }),
+      };
 
-    Alert.alert('Novo objeto', 'Agora vai');
+      // Alert.alert('Novo objeto', data.timeDistance);
 
-    return setCheckIns(data);
-
-    const { error } = err.response.data;
-    Alert.alert('Limite de Check-In', error);
+      return setCheckIns([...checkIns, data]);
+    } catch (err) {
+      const { error } = err.response.data;
+      Alert.alert('Limite de Check-In', error);
+    }
   }
 
   return (
-    <Header>
+    <Container>
       <HeaderTitle />
-      <Container>
-        <CheckInButton onPress={handleCheckIn}>Novo check-in</CheckInButton>
-        {checkIns.map(checkIn => (
-          <CheckInCard key={checkIn.id} date={checkIn.timeDistance} />
-        ))}
-      </Container>
-    </Header>
+
+      <CheckInButton onPress={handleCheckIn}>Novo check-in</CheckInButton>
+      <FlatList
+        data={checkIns}
+        keyExtractor={item => String(item.id)}
+        renderItem={({ item }) => <CheckInCard date={item.timeDistance} />}
+      />
+    </Container>
   );
 }
 
