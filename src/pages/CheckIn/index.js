@@ -9,7 +9,7 @@ import pt from 'date-fns/locale/pt';
 import HeaderTitle from '~/components/HeaderTitle';
 import CheckInCard from '~/components/CheckInCard';
 
-import { Header, Container, CheckInButton } from './styles';
+import { Container, CheckInButton } from './styles';
 
 import api from '~/services/api';
 
