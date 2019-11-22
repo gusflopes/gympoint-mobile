@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { parseISO, formatDistance } from 'date-fns';
-import pt from 'date-fns/locale/pt';
 
 import { Container, CheckInText, TimeText } from './styles';
 
@@ -15,6 +13,6 @@ export default function CheckInCard({ date }) {
 }
 
 CheckInCard.propTypes = {
-  date: PropTypes.instanceOf(Date).isRequired,
+  date: PropTypes.string.isRequired,
   // count: PropTypes.string.isRequired,
 };

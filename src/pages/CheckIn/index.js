@@ -38,18 +38,30 @@ export default function CheckIn() {
     }
 
     loadData();
-  }, [studentId]);
+  }, []); //eslint-disable-line
+
+  useEffect(() => {
+    Alert.alert('message', JSON.stringify(checkIns));
+  }, [checkIns]);
 
   async function handleCheckIn() {
-    try {
-      const response = await api.post(`/students/${studentId}/checkins`);
-      const { checkin } = response.data;
+    const response = await api.post(`/students/${studentId}/checkins`);
+    const { checkin } = response.data;
+    // Alert.alert('Mensagem', JSON.stringify(checkin));
+    const data = {
+      ...checkin,
+      timeDistance: formatDistance(parseISO(checkin.createdAt), new Date(), {
+        addSuffix: true,
+        locale: pt,
+      }),
+    };
 
-      setCheckIns(...checkIns, checkin);
-    } catch (err) {
-      const { message } = err;
-      Alert.alert('Limite de Check-In', message);
-    }
+    Alert.alert('Novo objeto', 'Agora vai');
+
+    return setCheckIns(data);
+
+    const { error } = err.response.data;
+    Alert.alert('Limite de Check-In', error);
   }
 
   return (
