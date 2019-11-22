@@ -7,59 +7,78 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import HeaderTitle from '~/components/HeaderTitle';
 
 import SignIn from '~./pages/SignIn';
-import SignUp from '~/pages/SignUp';
 import HelpOrder from '~/pages/HelpOrder';
 import CheckIn from '~/pages/CheckIn';
 
 import NewHelpOrder from '~/pages/HelpOrder/NewHelpOrder';
 import DetailsHelpOrder from '~/pages/HelpOrder/DetailsHelpOrder';
 
-export default createAppContainer(
-  createSwitchNavigator(
-    {
-      Sign: createSwitchNavigator({
-        SignIn,
-        SignUp,
-      }),
-      App: createBottomTabNavigator(
-        {
-          CheckIn,
-          HelpOrder: {
-            screen: createStackNavigator(
-              {
-                HelpOrder,
-                NewHelpOrder,
-                DetailsHelpOrder,
+export default (signedIn = false) =>
+  createAppContainer(
+    createSwitchNavigator(
+      {
+        Sign: createSwitchNavigator({
+          SignIn,
+        }),
+        App: createBottomTabNavigator(
+          {
+            CheckIn: {
+              screen: CheckIn,
+              navigationOptions: {
+                tabBarLabel: 'Check-ins',
+                tabBarIcon: ({ tintColor }) => (
+                  <Icon name="room" size={30} color={tintColor} />
+                ),
               },
-              {
-                defaultNavigationOptions: {
-                  headerTitle: () => <HeaderTitle />,
-                  headerTransparent: false,
-                  headerTintColor: '#EE4E62',
-                  headerLayoutPreset: 'center',
-                  headerLeftContainerStyle: {
-                    marginLeft: 20,
-                  },
+            },
+            HelpOrder: {
+              screen: createStackNavigator(
+                {
+                  HelpOrder,
+                  NewHelpOrder,
+                  DetailsHelpOrder,
                 },
-              }
-            ),
-          },
-        },
-        {
-          resetOnBlur: true,
-          tabBarOptions: {
-            keyboardHidesTabBar: true,
-            activeTintColor: '#ee4e62',
-            inactiveTintColor: '#999',
-            style: {
-              backgroundColor: '#fff',
+                {
+                  defaultNavigationOptions: {
+                    headerRight: () => <HeaderTitle />,
+                    headerTransparent: false,
+                    headerTintColor: '#EE4E62',
+                    headerLayoutPreset: 'center',
+                    headerLeftContainerStyle: {
+                      marginLeft: 20,
+                      backgroundColor: '#7159c1',
+                    },
+                    headerRightContainerStyle: {
+                      flexDirection: 'row',
+                      backgroundColor: '#999',
+                      marginRight: 60,
+                    },
+                  },
+                }
+              ),
+              navigationOptions: {
+                tabBarLabel: 'Pedir ajuda',
+                tabBarIcon: ({ tintColor }) => (
+                  <Icon name="help" size={30} color={tintColor} />
+                ),
+              },
             },
           },
-        }
-      ),
-    },
-    {
-      initialRouteName: 'App',
-    }
-  )
-);
+          {
+            resetOnBlur: true,
+            tabBarOptions: {
+              keyboardHidesTabBar: true,
+              activeTintColor: '#ee4e62',
+              inactiveTintColor: '#999',
+              style: {
+                backgroundColor: '#fff',
+              },
+            },
+          }
+        ),
+      },
+      {
+        initialRouteName: signedIn ? 'App' : 'Sign',
+      }
+    )
+  );

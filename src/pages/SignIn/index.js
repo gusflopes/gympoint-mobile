@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import logo from '~/assets/logo.png';
 
-import { signInRequest } from '~/store/modules/auth/actions';
+import { signInRequest } from '~/store/modules/student/actions';
 
 import {
   Container,
@@ -40,7 +40,7 @@ export default function SignIn({ navigation }) {
           value={student}
           onChangeText={setStudent}
         />
-        <SubmitButton onPress={() => {}}>Entrar no sistema</SubmitButton>
+        <SubmitButton onPress={handleSubmit}>Entrar no sistema</SubmitButton>
       </Form>
 
       <SignLink onPress={() => navigation.navigate('DetailsHelpOrder')}>

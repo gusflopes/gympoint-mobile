@@ -1,13 +1,12 @@
 import React from 'react';
-import LogoFile from '~/assets/logo-header.png';
+import LogoFile from '~/assets/horizontal_logo.png';
 
-import { Container, Logo, Text } from './styles';
+import { Container, Logo } from './styles';
 
 export default function HeaderTitle() {
   return (
     <Container>
-      {/*      <Logo source={LogoFile} /> */}
-      <Text>GYMPOINT</Text>
+      <Logo source={LogoFile} />
     </Container>
   );
 }
