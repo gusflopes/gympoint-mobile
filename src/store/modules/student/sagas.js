@@ -21,7 +21,7 @@ export function* signIn({ payload }) {
 
     // history.push('/dashboard');
   } catch (err) {
-    Alert.alert('ID Incorreto 02!', 'Verifique seus dados');
+    Alert.alert('ID Incorreto!', 'Verifique seus dados.');
     // yield put(signFailure());
   }
 }
