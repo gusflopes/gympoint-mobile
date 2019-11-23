@@ -11,14 +11,23 @@ export default function NewHelpOrder({ navigation }) {
   const [message, setMessage] = useState('');
   const userId = useSelector(state => state.student.student);
 
-  function handleSubmit() {
-    const response = api.post(`students/${userId}/help-orders`, {
-      question: message,
-    });
+  async function handleSubmit() {
+    try {
+      const response = await api.post(`students/${userId}/help-orders`, {
+        question: message,
+      });
 
-    // const { id } = response.help_order;
+      const { help_order } = response.data;
 
-    // Alert.alert('Alerta', `Sua pergunta Id ${id} foi postada com sucesso.`);
+      Alert.alert(
+        'Alerta',
+        `Sua pergunta ID ${help_order.id}, foi postada com sucesso.`
+      );
+      navigation.navigate('HelpOrder', { help_order });
+    } catch (err) {
+      const { error } = err.response.data;
+      Alert.alert('Erro!', error);
+    }
   }
 
   return (

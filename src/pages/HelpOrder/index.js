@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { use } from 'react-navigation';
 
 import { Container, HelpButton } from './styles';
 import HelpOrderCard from '~/components/HelpOrderCard';
@@ -8,7 +9,6 @@ import api from '~/services/api';
 
 export default function HelpOrder({ navigation }) {
   const [helpOrders, setHelpOrders] = useState([]);
-  const [helpOrder, setHelpOrder] = useState({});
   const studentId = useSelector(state => state.student.student);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function HelpOrder({ navigation }) {
       setHelpOrders(response.data.help_order);
     }
     loadData();
-  }, [studentId]);
+  }, [studentId, navigation]);
 
   function handleNavigate(item) {
     navigation.navigate('DetailsHelpOrder');
