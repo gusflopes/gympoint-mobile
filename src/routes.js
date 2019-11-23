@@ -46,12 +46,11 @@ export default (signedIn = false) =>
                     headerLayoutPreset: 'center',
                     headerLeftContainerStyle: {
                       marginLeft: 20,
-                      backgroundColor: '#7159c1',
                     },
                     headerRightContainerStyle: {
                       flexDirection: 'row',
                       backgroundColor: '#999',
-                      marginRight: 60,
+                      marginRight: 150,
                     },
                   },
                 }

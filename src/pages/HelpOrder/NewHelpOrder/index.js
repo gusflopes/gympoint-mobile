@@ -23,7 +23,10 @@ export default function NewHelpOrder({ navigation }) {
         'Alerta',
         `Sua pergunta ID ${help_order.id}, foi postada com sucesso.`
       );
-      navigation.navigate('HelpOrder', { help_order });
+      navigation.navigate(
+        'HelpOrder',
+        'código ultra secreto para fazer refresh! Se viu isso dá um salve no twitter @gusflopes'
+      );
     } catch (err) {
       const { error } = err.response.data;
       Alert.alert('Erro!', error);

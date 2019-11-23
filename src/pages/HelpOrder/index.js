@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { use } from 'react-navigation';
+import { useSelector } from 'react-redux';
 
 import { Container, HelpButton } from './styles';
 import HelpOrderCard from '~/components/HelpOrderCard';
@@ -15,13 +14,16 @@ export default function HelpOrder({ navigation }) {
     async function loadData() {
       const response = await api.get(`/students/${studentId}/help-orders`);
 
-      setHelpOrders(response.data.help_order);
+      const { help_order } = response.data;
+
+      setHelpOrders(help_order);
     }
     loadData();
   }, [studentId, navigation]);
 
   function handleNavigate(item) {
-    navigation.navigate('DetailsHelpOrder');
+    console.tron.log(item);
+    navigation.navigate('DetailsHelpOrder', { helpOrder: item });
   }
 
   return (
