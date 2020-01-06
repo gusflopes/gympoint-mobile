@@ -25,7 +25,7 @@
 <p align="center">
   <a href="#rocket-sobre-o-desafio">Sobre o desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-entrega">Entrega</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-utilizar">Utilizar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
 
@@ -33,7 +33,7 @@
 
 Durante esse desafio vamos construir o app mobile da aplicação Gympoint que criamos o back-end durante os desafios dos módulos 02 e 03 de Node.js e front-end no desafio do módulo 09 de ReactJS.
 
-A versão mobile do projeto Gympoint representa a visão do aluno, ou seja, todas funcionalidades presentes nesse projeto são para alunos. 
+A versão mobile do projeto Gympoint representa a visão do aluno, ou seja, todas funcionalidades presentes nesse projeto são para alunos.
 
 ### Opcionais
 
@@ -47,13 +47,25 @@ Caso esteja usando OS X / Windows você pode abrir esse arquivo com um software 
 
 Caso esteja no Linux ou não vá usar o Zeplin existe uma pasta chamada `Gympoint Mobile` junto com esse repositório, baixe-a e acesse o arquivo `index.html` para visualizar as telas da aplicação.
 
-## 📅 Entrega
+## 📅 Utilizar
 
-Esse desafio **não precisa ser entregue** e não receberá correção. Além disso, o código fonte **não está disponível** por fazer parte do **desafio final**, que será corrigido para **certificação** do bootcamp. Após concluir o desafio, adicionar esse código ao seu Github é uma boa forma de demonstrar seus conhecimentos para oportunidades futuras.
+Para rodar este app mobile no Emulador Android, basta utilizar os seguintes comandos com o Emulador já rodando:
+
+```bash
+yarn
+
+yarn android
+
+yarn start
+```
 
 ## 📝 Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+
+---
+
+Este projeto é parte integrante do Desafio Final desenvolvido por [**Gustavo Lopes**](https://github.com/gusflopes) durante a 9ª Edição do Bootcamp GoStack.
 
 ---
 
